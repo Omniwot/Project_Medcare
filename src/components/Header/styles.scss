@@ -7,7 +7,7 @@
     height: 100%;
     max-width: 1450px;
     margin: 0 auto;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Hahmlet', serif;
     
     .head{
             max-height: 100%;
@@ -38,7 +38,7 @@
      h2 {
         display:flex;
         margin-top:  5px;;
-        font-weight: bold;
+        font-weight:normal;
         padding: auto auto auto auto;
         text-align: center;
         
@@ -75,7 +75,7 @@
           list-style-type: none;
 
           a {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             line-height: 6.5rem;
             vertical-align: middle;
             color: black;
@@ -113,7 +113,7 @@
               }
       
               a, span {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
                 line-height: 1;
                 color: black;
                 text-decoration: none;
