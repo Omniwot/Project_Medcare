@@ -18,7 +18,7 @@ const Header= props => {
               </Link>
              </div>
              <div className="right">
-               <h2>Medpedia</h2> 
+               <h2>MedPedia</h2> 
                <h4>
                  Search, schedule, price your medical services
                </h4>
