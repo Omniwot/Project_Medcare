@@ -1,15 +1,17 @@
 import React, {Component} from "react";
 import './styles.scss';
+import { Link, withRouter } from "react-router-dom";
 import Buttons from './../forms/Button';
 import { signInWithGoogle } from "../../firebase/utils";
 
-class SignIn extends Component {
+const SignIn =props=>{
 
-    handleSubmit=async e =>{
+     const handleSubmit=async e =>{
         e.preventDefault();
+        
     }
 
-    render(){
+    
     return(
         <div className="signin">
             <div className="wrap">
@@ -18,7 +20,7 @@ class SignIn extends Component {
                 </h2>
 
                 <div className="formWrap">
-                    <form onSubmit={this.handleSubmit}>
+                    <form onSubmit={handleSubmit}>
                         <div className="socialSignIn">
                             <div className="row">
                                <Buttons onClick={signInWithGoogle}>
@@ -33,5 +35,5 @@ class SignIn extends Component {
         </div>
     );
 };
-}
+
 export default SignIn;

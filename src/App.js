@@ -1,27 +1,32 @@
-import React, {Component} from 'react';
+import React, {useEffect} from 'react';
 import {Switch,Route, Redirect} from 'react-router-dom';
 import { auth , handleUserProfile } from './firebase/utils';
 import {setCurrentUser} from './redux/User/user.actions';
 import { connect } from 'react-redux';
 
 import './default.scss';
+
 import MainLayout from './layouts/MainLayout';
+import HomepageLayout from './layouts/HomepageLayout';
+
 import Homepage from './pages/Homepage';
+import Dashboard from './pages/Dashboard';
 import Search from './pages/Search';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
-import HomepageLayout from './layouts/HomepageLayout';
 
 
-class App extends Component {
+import WithAuth from './hoc/withAuth';
+
+
+const App = props=> {
   
-  authListener=null;
+  const {setCurrentUser, currentUser} =props;
 
-  componentDidMount(){
+  useEffect(()=>{
+    
 
-    const {setCurrentUser} =this.props;
-
-    this.authListener = auth.onAuthStateChanged(async userAuth=>{
+    const authListener = auth.onAuthStateChanged(async userAuth=>{
       if(userAuth){
         const userRef= await handleUserProfile(userAuth);
         userRef.onSnapshot(snapshot=>{
@@ -38,15 +43,16 @@ class App extends Component {
       setCurrentUser(userAuth);
      
     });
-  }
+  
+    
+    return ()=>{ 
+      authListener();
+     }
 
-  componentWillUnmount(){
-    this.authListener();
-  }
+  },[]);
 
-  render(){
-    const {currentUser}=this.props;
 
+    
   return (
     <div className="App">
        <Switch>
@@ -72,11 +78,18 @@ class App extends Component {
              <Search />
            </MainLayout> 
          )}/>
+         <Route path="/dashboard" render={()=>(
+           <WithAuth>
+            <MainLayout>
+              <Dashboard />
+            </MainLayout> 
+           </WithAuth>
+         )}/>
        </Switch>
     </div>
   );
 }
-}
+
 
 const mapStateToProps=({user})=>({
   currentUser:user.currentUser
