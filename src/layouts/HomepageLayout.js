@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './../components/Header';
-import Footer from './../components/Foooter';
+import Footer from '../components/Foooter';
 
 const HomepageLayout= props =>{
     return(

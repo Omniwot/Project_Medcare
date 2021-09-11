@@ -17,6 +17,7 @@ import Registration from './pages/Registration';
 
 
 import WithAuth from './hoc/withAuth';
+import Uploadpage from './pages/Upload';
 
 
 const App = props=> {
@@ -58,7 +59,7 @@ const App = props=> {
        <Switch>
          <Route exact path="/" render={()=>(
             <HomepageLayout currentUser={currentUser}>
-              <Homepage />
+              <Homepage currentUser={currentUser}/>
             </HomepageLayout>
          )}/>
          
@@ -78,6 +79,13 @@ const App = props=> {
              <Search />
            </MainLayout> 
          )}/>
+         <Route path="/upload"
+          render={()=>(
+           <MainLayout currentUser={currentUser}>
+             <Uploadpage currentUser={currentUser}/>
+           </MainLayout>
+         )}/>
+         
          <Route path="/dashboard" render={()=>(
            <WithAuth>
             <MainLayout>

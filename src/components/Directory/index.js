@@ -1,9 +1,13 @@
 import React from  "react";
 import Upload from './../../assets/upload.jpg';
 import Search from './../../assets/search.jpg';
+import { Link } from "react-router-dom";
 import './styles.scss';
 
 const Directory = props => {
+
+  const currentUser=props.currentUser;
+
   return (
     <div className="directory">
       <div className="wrap">
@@ -13,9 +17,16 @@ const Directory = props => {
             backgroundImage: `url(${Upload})`
           }}
         >
-          
-           <a>Share a Bill</a> 
-          
+          {currentUser && (
+              <Link to="/upload">
+               <a>Upload</a> 
+              </Link>           
+         )}
+          {!currentUser && (
+            <Link to="/login">
+              <a>Upload</a> 
+             </Link>           
+         )}
         </div>
         <div
           className="item"
@@ -23,8 +34,9 @@ const Directory = props => {
             backgroundImage: `url(${Search})`
           }}
         >
-          
+          <Link to="/search">
            <a>Search</a> 
+          </Link>
           
         </div>
       </div>

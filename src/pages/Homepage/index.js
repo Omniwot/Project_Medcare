@@ -5,7 +5,7 @@ import './styles.scss';
 const Homepage = props => {
   return (
     <section className="homepage">
-      <Directory />
+      <Directory currentUser={props.currentUser}/>
     </section>
   );
 };
