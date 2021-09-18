@@ -4,9 +4,14 @@ import Logo from './../../assets/logo.png';
 import { Link  } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { auth } from '../../firebase/utils';
+import { useHistory } from "react-router-dom";
+
 
 const Header= props => {
     const {currentUser}=props;
+
+    const history = useHistory();
+
     return(
         <header className="header">
              
@@ -18,7 +23,7 @@ const Header= props => {
               </Link>
              </div>
              <div className="right">
-               <h2>Medpedia</h2> 
+               <h2>Phigent</h2> 
                <h4>
                  Search, schedule, price your medical services
                </h4>
@@ -34,7 +39,8 @@ const Header= props => {
                         </Link>
                      </li>
                      <li>
-                       <span onClick={()=> auth.signOut()}>
+                       <span onClick={()=> {auth.signOut();
+                    history.push("/");}}>
                             Logout
                         </span>  
                      </li>

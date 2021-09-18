@@ -34,10 +34,16 @@ const Directory = props => {
             backgroundImage: `url(${Search})`
           }}
         >
-          <Link to="/search">
-           <a>Search</a> 
-          </Link>
-          
+           {currentUser && (
+              <Link to="/search">
+               <a>Search</a> 
+              </Link>           
+         )}
+          {!currentUser && (
+            <Link to="/login">
+              <a>Search</a> 
+             </Link>           
+         )}
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ const Footer = props => {
   return (
     <footer className="footer">
       <div className="wrap">
-        © Medpedia 2021
+        © Phigent 2021
       </div>
     </footer>
   );

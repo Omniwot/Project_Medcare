@@ -1,11 +1,12 @@
 import React from 'react';
 import Search from '../../components/Search' 
+import './styles.scss'
 
 const Searchpage = ({}) => {
   return (
-    <div className="searchPage">
+    <section className="searchpage">
       <Search/>
-    </div>
+    </section>
   );
 };
 

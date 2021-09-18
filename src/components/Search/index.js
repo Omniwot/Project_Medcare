@@ -57,7 +57,7 @@ const Search = props => {
     return (
       <Container>
         <Row>
-          <h5>{restaurant.Description}</h5>
+          <h5>Procedure: {restaurant.Description}</h5>
         </Row>
         <Row>
         {Object.keys(restaurant).map((key)=>{
@@ -86,7 +86,7 @@ const Search = props => {
           <input
             type="text"
             className="form-control"
-            placeholder="Search by name"
+            placeholder="Search by Procedure/CPT"
             value={searchName}
             onChange={onChangeSearchName}
           />

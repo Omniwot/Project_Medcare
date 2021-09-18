@@ -14,6 +14,7 @@ import Dashboard from './pages/Dashboard';
 import Search from './pages/Search';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
+import Recovery from './pages/Recovery';
 
 
 import WithAuth from './hoc/withAuth';
@@ -58,31 +59,38 @@ const App = props=> {
     <div className="App">
        <Switch>
          <Route exact path="/" render={()=>(
-            <HomepageLayout currentUser={currentUser}>
+            <HomepageLayout>
               <Homepage currentUser={currentUser}/>
             </HomepageLayout>
          )}/>
          
-         <Route path="/registration" render={()=>(
-           <MainLayout currentUser={currentUser}>
+         <Route path="/registration" 
+         render={()=>currentUser ? <Redirect to="/"/> :(
+           <MainLayout >
              <Registration />
            </MainLayout>
          )}/>
          <Route path="/login"
           render={()=>currentUser ? <Redirect to="/"/> :(
-           <MainLayout currentUser={currentUser}>
+           <MainLayout >
              <Login />
            </MainLayout>
          )}/>
          <Route path="/search" render={()=>(
-           <MainLayout currentUser={currentUser}>
+           <MainLayout >
              <Search />
            </MainLayout> 
          )}/>
          <Route path="/upload"
           render={()=>(
-           <MainLayout currentUser={currentUser}>
+           <MainLayout >
              <Uploadpage currentUser={currentUser}/>
+           </MainLayout>
+         )}/>
+         <Route path="/recovery"
+          render={()=>(
+           <MainLayout >
+             <Recovery />
            </MainLayout>
          )}/>
          
