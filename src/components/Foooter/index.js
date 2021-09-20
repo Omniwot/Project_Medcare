@@ -6,12 +6,14 @@ const Footer = props => {
   return (
     <footer className="footer">
       <div className="wrap">
+        <div className="tm">
         © Phigent 2021
-      </div>
+        </div>
       <div className="privacy">
         <a href="/privacy" target="_blank">
           Privacy Policy
         </a>
+      </div>
       </div>
     </footer>
   );
