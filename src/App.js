@@ -15,10 +15,13 @@ import Search from './pages/Search';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
 import Recovery from './pages/Recovery';
-
+import ContactPage from './pages/ContactPage';
+import Privacy from './pages/Privacy'
 
 import WithAuth from './hoc/withAuth';
 import Uploadpage from './pages/Upload';
+
+
 
 
 const App = props=> {
@@ -100,6 +103,16 @@ const App = props=> {
               <Dashboard />
             </MainLayout> 
            </WithAuth>
+         )}/>
+         <Route path="/contactus"
+          render={()=>(
+           <MainLayout >
+             <ContactPage />
+           </MainLayout>
+         )}/>
+         <Route path="/privacy"
+          render={()=>(
+           <Privacy/>
          )}/>
        </Switch>
     </div>

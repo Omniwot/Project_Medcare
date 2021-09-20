@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './styles.scss';
+import RestaurantDataService from "../Search/service";
 
 import FormInput from '../forms/FormInput';
 import  Buttons1 from '../forms/Button1';
@@ -21,26 +22,39 @@ const ContactUs = props=>{
         setPhone('');
         setMessage('');
         setErrors([]);
-        setCompany([]);
+        setCompany('');
     }
 
     const handleFormSubmit= async event=>{
         
         event.preventDefault();
-        
-        
-        try{
 
-            
-            reset();
-
-
-        } catch(err){
+        var data={
+            fullname:fullname,
+            email:email,
+            phone:Phone,
+            message:Message,
+            company:company
 
         }
-    }
+        if(fullname.length!==0 && email.length!==0 && company.length!==0){
+            
+            RestaurantDataService.createSupportRequest(data)
+                    
+                .then(response => {
+                    console.log(response.data);
+                })
+                .catch(e => {
+                    console.log(e);
+                });
+                reset();
+                }
+        else{
+                setErrors(['Please fill all mandatory fields'])
+            }
+            
 
-        
+    }
 
         return(
             <div className="signup">
@@ -68,7 +82,7 @@ const ContactUs = props=>{
                          placeholder="Full name"
                          handleChange={e=>setFullName(e.target.value)}
                         />
-
+                        
                         <FormInput
                          type="email"
                          name="email"
@@ -89,7 +103,7 @@ const ContactUs = props=>{
                          type="Phone"
                          name="Phone"
                          value={Phone}
-                         placeholder="Phone"
+                         placeholder="Phone(optional)"
                          handleChange={e=>setPhone(e.target.value)}
                         />
 
@@ -100,7 +114,7 @@ const ContactUs = props=>{
                          placeholder="Message(optional)"
                          handleChange={e=>setMessage(e.target.value)}
                         />
-                        <Buttons1 type="submit">
+                        <Buttons1 type="submit" className="btn-info">
                             Submit
                         </Buttons1>
                     </form>

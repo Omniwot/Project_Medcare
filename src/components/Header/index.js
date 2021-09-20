@@ -31,8 +31,14 @@ const Header= props => {
 
             </div>
             <div className="callToActions">
+        
                 {currentUser && (
                     <ul>
+                        <li>
+                        <Link to="/contactus">
+                        Contact Us
+                        </Link>
+                    </li>
                      <li>
                         <Link to="/dashboard">
                             My Account
@@ -50,6 +56,11 @@ const Header= props => {
                 )}
                 {!currentUser && (
                 <ul>
+                    <li>
+                        <Link to="/contactus">
+                        Contact Us
+                        </Link>
+                    </li>
                     <li>
                         <Link to="/registration">
                         Register
