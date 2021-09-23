@@ -15,6 +15,7 @@ const Signup = props=>{
     const [password, setPassword]=useState('');
     const [confirmPassword, setConfirmPassword]=useState('');
     const [errors,setErrors]=useState([]);
+    const [check,setCheck]=useState('');
 
     const reset=()=>{
         setDisplayName('');
@@ -22,6 +23,7 @@ const Signup = props=>{
         setPassword('');
         setConfirmPassword('');
         setErrors([]);
+        setCheck(false);
     }
 
     const handleFormSubmit= async event=>{
@@ -101,7 +103,17 @@ const Signup = props=>{
                          placeholder="Confirm Password"
                          handleChange={e=>setConfirmPassword(e.target.value)}
                         />
-                        <Buttons1 type="submit">
+                           <div className="tnccheck">
+                            <input
+                             type="checkbox"
+                                className="tnc"
+                                name="tnc"
+                                value="tnc"
+                                handleChange={e=>setCheck(e.target.value)}
+                                />
+                                  By signing into the Phigent account, I agree to the <a href="/terms">Terms of Use</a> and <a href="/privacy">Privacy Policy</a>. 
+                            </div>
+                        <Buttons1 type="submit" className="btn-info">
                             Register
                         </Buttons1>
                     </form>

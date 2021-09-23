@@ -17,6 +17,7 @@ import Registration from './pages/Registration';
 import Recovery from './pages/Recovery';
 import ContactPage from './pages/ContactPage';
 import Privacy from './pages/Privacy'
+import Terms from './pages/Terms';
 
 import WithAuth from './hoc/withAuth';
 import Uploadpage from './pages/Upload';
@@ -113,6 +114,10 @@ const App = props=> {
          <Route path="/privacy"
           render={()=>(
            <Privacy/>
+         )}/>
+         <Route path="/terms"
+          render={()=>(
+           <Terms/>
          )}/>
        </Switch>
     </div>

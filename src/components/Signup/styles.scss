@@ -8,7 +8,11 @@
     .wrap{
       padding:10px;
     }
-  
+    .btn-info{
+      display: flex;
+      justify-content: center;
+      width: 50% !important;
+    }
     h2{
       font-size: 2.2rem;
       line-height: 1;
@@ -24,7 +28,12 @@
       font-family: 'Times New Roman', Times, serif;
       margin: .5rem auto 0;
     }
-    
-    
+    .tnccheck{
+      font-size: medium;
+      margin:2rem;
+    }
+    .tnc{
+      margin:0px 5px 0px 0px;
+    }
     
   }
