@@ -57,7 +57,12 @@ const ContactUs = props=>{
     }
 
         return(
-            <div className="signup">
+            <div className="cupage">
+            <div className="leftside">
+                    We are here to help you search for an optimal price for your healthcare needs.
+                </div>
+            <div className="contactus">
+                
                 <div className="wrap">
                     <h2>
                         Contact Us
@@ -76,6 +81,7 @@ const ContactUs = props=>{
                     <form onSubmit={handleFormSubmit}>
 
                         <FormInput
+                         className="newinp"
                          type="text"
                          name="fullname"
                          value={fullname}
@@ -84,6 +90,7 @@ const ContactUs = props=>{
                         />
                         
                         <FormInput
+                        className="newinp"
                          type="email"
                          name="email"
                          value={email}
@@ -92,6 +99,7 @@ const ContactUs = props=>{
                         />
 
                         <FormInput
+                        className="newinp"
                          type="text"
                          name="company"
                          value={company}
@@ -100,6 +108,7 @@ const ContactUs = props=>{
                         />      
 
                         <FormInput
+                        className="newinp"
                          type="Phone"
                          name="Phone"
                          value={Phone}
@@ -108,6 +117,7 @@ const ContactUs = props=>{
                         />
 
                         <FormInput
+                        className="newinp"
                          type="text"
                          name="Message"
                          value={Message}
@@ -119,6 +129,7 @@ const ContactUs = props=>{
                         </Buttons1>
                     </form>
                 </div>
+            </div>
             </div>
         )
     }

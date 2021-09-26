@@ -15,7 +15,7 @@ const Signup = props=>{
     const [password, setPassword]=useState('');
     const [confirmPassword, setConfirmPassword]=useState('');
     const [errors,setErrors]=useState([]);
-    const [check,setCheck]=useState('');
+    const [check,setCheck]=useState(false);
 
     const reset=()=>{
         setDisplayName('');
@@ -36,7 +36,12 @@ const Signup = props=>{
             setErrors(err);
             return;
         }
-        
+        if(check!== true){
+            const err=['Please agree to the our Privacy Policy and Terms of Use before Registering'];
+            setErrors(err);
+            return;
+        }
+
         try{
 
             const {user}=await auth.createUserWithEmailAndPassword(email, password);
@@ -109,7 +114,8 @@ const Signup = props=>{
                                 className="tnc"
                                 name="tnc"
                                 value="tnc"
-                                handleChange={e=>setCheck(e.target.value)}
+                                checked={check}
+                                onChange={e=>setCheck(!check)}
                                 />
                                   By signing into the Phigent account, I agree to the <a href="/terms">Terms of Use</a> and <a href="/privacy">Privacy Policy</a>. 
                             </div>

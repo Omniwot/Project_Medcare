@@ -55,26 +55,17 @@ const Search = props => {
    .map((restaurant) => {
     restaurant=EJSON.parse(JSON.stringify(restaurant),{strict:false});
     return (
-      <Container>
-        <Row>
-          <h5>Procedure: {restaurant.Description}</h5>
-        </Row>
-        <Row>
-        {Object.keys(restaurant).map((key)=>{
-            if(key!="Description" && key!="_id"){
-            return (
-             
-              <Col>
-               <Row><h6>{key}</h6></Row>
-               <Row><div className="key">{restaurant[key]}</div></Row>
-              </Col>
-            
-            );}
-      })
-      }
-        </Row>
-      </Container>
-    );
+      <tr>
+      <th scope="row"></th>
+      <td>{restaurant.Hospital}</td>
+      <td>Location</td>
+      <td>Contact Number</td>
+      <td>{restaurant.ecp}</td>
+      <td>{restaurant["Cigna-Deductible"]}</td>
+      <td>{restaurant["Cigna-Copay"]}</td>
+      </tr>
+      );
+      
   });
 
  
@@ -104,7 +95,22 @@ const Search = props => {
       </div>
       <div >
       
-      {displayPrices}
+      <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Provider</th>
+      <th scope="col">Location</th>
+      <th scope="col">Contact Number</th>
+      <th scope="col">Cash Price</th>
+      <th scope="col">Cigna-Deductible</th>
+      <th scope="col">Cigna-Copay</th>
+    </tr>
+  </thead>
+  <tbody>
+   {displayPrices} 
+  </tbody>
+</table>
 
       </div>
       <div className="paginate">

@@ -1,11 +1,27 @@
-.signup{
+.cupage{
+  display: flex;
+  align-items: center;
+}
+.leftside{
+  max-width: 50%;
+  font-size:x-large;
+  text-align: center;
+  align-items: center;
+  margin-left: 4rem;
+}
+.contactus{
+    float: right;
     display:block;
     width: 100%;
     max-width: 40rem;
     margin:4rem auto 6rem;
-    border: 1px solid black;
-  
+    border:0px;
+    background-color: rgb(225, 243, 243);
+    
+
     .wrap{
+      align-items: center;
+      text-align: center;
       padding:10px;
     }
   
@@ -18,21 +34,23 @@
       display:block;
       width: 100%;
       padding: 0;
-      margin: 0 auto;
+      margin: 2rem auto;
     }
-   .socialSignin {
-      font-family: 'Times New Roman', Times, serif;
-      margin: .5rem auto 0;
-    }
+   
     
+  }
+  .newinp{
+    border:0px !important;
+    margin:3rem !important;
+    max-width:32rem !important;
   }
   .btn-info{
     padding: 1rem 1rem !important;
     margin: auto auto !important;
     border: 0 !important;
-    width: 100% !important;
+    width: 40% !important;
     font-size: 1.5rem !important;
-    border-radius: 20px;
+    border-radius: 0.5rem;
     color:white !important;
     font-weight: normal !important;
   }
