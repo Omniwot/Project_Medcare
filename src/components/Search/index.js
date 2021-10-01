@@ -13,8 +13,10 @@ const Search = props => {
   const [restaurants, setRestaurants] = useState([]);
   const [searchName, setSearchName ] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
+  const [CPT, setCPT] = useState('');
+  const [Desc, setDesc] = useState('');
 
-  const usersPerPage = 6;
+  const usersPerPage = 12;
   const pagesVisited = pageNumber * usersPerPage;
   const pageCount = Math.ceil(restaurants.length / usersPerPage);
 
@@ -39,6 +41,7 @@ const Search = props => {
       .then(response => {
         console.log(response.data);
         setRestaurants(response.data.restaurants);
+        setCPT(response.data.restaurants[0]["CPT"]);
       })
       .catch(e => {
         console.log(e);
@@ -49,7 +52,7 @@ const Search = props => {
     find(searchName, "name")
   };
 
-  
+  const getCPT=(<div>{CPT}</div>);
 
   const displayPrices=restaurants.slice(pagesVisited, pagesVisited + usersPerPage)
    .map((restaurant) => {
@@ -61,8 +64,8 @@ const Search = props => {
       <td>Location</td>
       <td>Contact Number</td>
       <td>{restaurant.ecp}</td>
-      <td>{restaurant["Cigna-Deductible"]}</td>
-      <td>{restaurant["Cigna-Copay"]}</td>
+      <td>{restaurant["Deductible"]}</td>
+      <td>{restaurant["co-pay"]}</td>
       </tr>
       );
       
@@ -94,7 +97,15 @@ const Search = props => {
        
       </div>
       <div >
-      
+      <div className="tablehead">
+        <div className="CPT">
+          <div className="CPTH"> CPT: </div>
+          <div className="CPTH-val">{getCPT}</div>
+        </div>
+        <div className="Desc">
+
+        </div>
+      </div>
       <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -102,9 +113,10 @@ const Search = props => {
       <th scope="col">Provider</th>
       <th scope="col">Location</th>
       <th scope="col">Contact Number</th>
+      <th scope="col">Insurance</th>
       <th scope="col">Cash Price</th>
-      <th scope="col">Cigna-Deductible</th>
-      <th scope="col">Cigna-Copay</th>
+      <th scope="col">Deductible</th>
+      <th scope="col">Copay</th>
     </tr>
   </thead>
   <tbody>
@@ -120,8 +132,8 @@ const Search = props => {
         pageCount={pageCount}
         onPageChange={changePage}
         containerClassName={"paginationBttns"}
-        previousLinkClassName={"btn btn-info"}
-        nextLinkClassName={"btn btn-info"}
+        previousLinkClassName={"btn btn-success"}
+        nextLinkClassName={"btn btn-success"}
         disabledClassName={"paginationDisabled"}
         activeClassName={"paginationActive"}
       />

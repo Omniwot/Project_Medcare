@@ -45,13 +45,20 @@
     background-color:rgb(224, 252, 253);
     border-radius: 5px;
 }
+.thead-dark{
+  font-size: large;
+}
+tr, td{
+  font-size: medium;
+  
+}
 .col,row,key{
     background-color:rgb(177, 228, 215);
     max-width: 100% !important;
     margin: 1px 5px 1px 5px !important;
     padding: 4px !important;
     text-align: center !important;
-    font-size: small;
+    font-size: large;
 }
 .paginate{
     margin-top: 15px;
@@ -68,8 +75,8 @@
     background-color: teal !important;
 }
 h6{
-    font-size:12px;
+    font-size:large;
 }
 h5{
-  font-size: 15px;
+  font-size: large;
 }

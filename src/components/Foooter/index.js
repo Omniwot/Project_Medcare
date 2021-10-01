@@ -9,6 +9,11 @@ const Footer = props => {
         <div className="tm">
         © Phigent 2021
         </div>
+      <div className="tou">
+        <a className="tou" href="/terms" target="_blank">
+          Terms of Use
+       </a>
+      </div>
       <div className="privacy">
         <a href="/privacy" target="_blank">
           Privacy Policy
