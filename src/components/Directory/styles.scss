@@ -13,7 +13,7 @@
         float: left;
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: 40rem;
   
         &::after {
           content: '';
@@ -60,7 +60,7 @@
       height: 50%;
   
       a {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
       }
     }
   

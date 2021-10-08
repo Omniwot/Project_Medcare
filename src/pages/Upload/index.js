@@ -4,7 +4,10 @@ import './styles.scss';
 
 
 const Uploadpage = props => {
-    return <Upload currentUser={props.currentUser}/>
+    return (
+    <section className="uppage">
+      <Upload currentUser={props.currentUser}/>
+      </section>);
   }
   
   

@@ -1,6 +1,6 @@
 import React from  "react";
-import Upload from './../../assets/upload.jpg';
-import Search from './../../assets/search.jpg';
+import Upload from './../../assets/result.png';
+import Search from './../../assets/lab1.jpeg';
 import { Link } from "react-router-dom";
 import './styles.scss';
 
@@ -15,16 +15,17 @@ const Directory = props => {
           className="item"
           style={{
             backgroundImage: `url(${Upload})`
+            
           }}
         >
           {currentUser && (
               <Link to="/upload">
-               <a>Upload</a> 
+               <a>Upload Bills</a> 
               </Link>           
          )}
           {!currentUser && (
             <Link to="/login">
-              <a>Upload</a> 
+              <a>Upload Bills</a> 
              </Link>           
          )}
         </div>
@@ -36,12 +37,12 @@ const Directory = props => {
         >
            {currentUser && (
               <Link to="/search">
-               <a>Search</a> 
+               <a>Search CPT/Description</a> 
               </Link>           
          )}
           {!currentUser && (
             <Link to="/login">
-              <a>Search</a> 
+              <a>Search CPT/Description</a> 
              </Link>           
          )}
         </div>

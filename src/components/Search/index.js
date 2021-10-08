@@ -41,7 +41,8 @@ const Search = props => {
       .then(response => {
         console.log(response.data);
         setRestaurants(response.data.restaurants);
-        setCPT(response.data.restaurants[0]["CPT"]);
+        setCPT(EJSON.parse(JSON.stringify(response.data.restaurants[0]["CPT"]),{strict:false}));
+        setDesc(response.data.restaurants[0]["Description"]);
       })
       .catch(e => {
         console.log(e);
@@ -53,6 +54,7 @@ const Search = props => {
   };
 
   const getCPT=(<div>{CPT}</div>);
+  const getDesc=(<div>{Desc}</div>);
 
   const displayPrices=restaurants.slice(pagesVisited, pagesVisited + usersPerPage)
    .map((restaurant) => {
@@ -61,11 +63,12 @@ const Search = props => {
       <tr>
       <th scope="row"></th>
       <td>{restaurant.Hospital}</td>
-      <td>Location</td>
-      <td>Contact Number</td>
-      <td>{restaurant.ecp}</td>
-      <td>{restaurant["Deductible"]}</td>
-      <td>{restaurant["co-pay"]}</td>
+      <td>{restaurant["Location"]}</td>
+      <td>{restaurant["contact"]}</td>
+      <td>{restaurant["InsurName"]}</td>
+      <td>${restaurant["Est service cost"]}</td>
+      <td>${restaurant["remaining deductable"]}</td>
+      <td>${restaurant["co-pay"]}</td>
       </tr>
       );
       
@@ -100,11 +103,14 @@ const Search = props => {
       <div className="tablehead">
         <div className="CPT">
           <div className="CPTH"> CPT: </div>
-          <div className="CPTH-val">{getCPT}</div>
+          <div className="CPT-val">{getCPT}</div>
         </div>
         <div className="Desc">
-
+          <div className="DescH"> Description : </div>
+          <div className="Desc-val">{getDesc}</div>
         </div>
+        <div className="disc">Disclaimer: These are estimated charges and final bill may vary. Please contact the provider for actual costs.   
+</div>
       </div>
       <table class="table">
   <thead class="thead-dark">
@@ -114,7 +120,7 @@ const Search = props => {
       <th scope="col">Location</th>
       <th scope="col">Contact Number</th>
       <th scope="col">Insurance</th>
-      <th scope="col">Cash Price</th>
+      <th scope="col">Estimated Cash Price</th>
       <th scope="col">Deductible</th>
       <th scope="col">Copay</th>
     </tr>

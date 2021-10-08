@@ -80,3 +80,51 @@ h6{
 h5{
   font-size: large;
 }
+.CPTH{
+  margin:0.1rem 1rem 0rem 1rem ;
+  display: inline-block;
+  font-size: medium;
+  font-weight: bold;
+  padding:0.5rem;
+}
+.CPT-val{
+  margin:0 1rem 0.1rem 1rem ;
+  display: inline-block;
+  font-size: medium;
+  padding:0.5rem;
+}
+.DescH{
+  margin:0 1rem 0rem 1rem ;
+  border-width: thin;
+  display: inline-block;
+  font-size: medium;
+  font-weight: bold;
+  padding:0.5rem;
+}
+.Desc-val{
+  margin:0 1rem 0rem 1rem ;
+  border-width: thin;
+  display: inline-block;
+  font-size: medium;
+  padding:0.5rem;
+  
+}
+.Desc{
+  width: fit-content;
+  border-width: thin;
+  border-style: groove;
+  border-color: rgb(156, 199, 201);
+  //background-color: rgb(218, 254, 255);
+}
+.CPT{
+  width: fit-content;
+  border-width: thin;
+  border-style:groove;
+  border-color: rgb(156, 199, 201);
+  //background-color: rgb(218, 254, 255);
+}
+.disc{
+  font-size: small;
+  
+}
+
