@@ -15,6 +15,7 @@ const Search = props => {
   const [pageNumber, setPageNumber] = useState(0);
   const [CPT, setCPT] = useState('');
   const [Desc, setDesc] = useState('');
+  const [errors, setErrors] = useState(1);
 
   const usersPerPage = 12;
   const pagesVisited = pageNumber * usersPerPage;
@@ -40,9 +41,11 @@ const Search = props => {
         
       .then(response => {
         console.log(response.data);
+        setErrors(response.data.total_results)
         setRestaurants(response.data.restaurants);
         setCPT(EJSON.parse(JSON.stringify(response.data.restaurants[0]["CPT"]),{strict:false}));
         setDesc(response.data.restaurants[0]["Description"]);
+        
       })
       .catch(e => {
         console.log(e);
@@ -64,7 +67,7 @@ const Search = props => {
       <th scope="row"></th>
       <td>{restaurant.Hospital}</td>
       <td>{restaurant["Location"]}</td>
-      <td>{restaurant["contact"]}</td>
+      <td>{restaurant["Contact"]}</td>
       <td>{restaurant["InsurName"]}</td>
       <td>${restaurant["Est service cost"]}</td>
       <td>${restaurant["remaining deductable"]}</td>
@@ -130,6 +133,13 @@ const Search = props => {
   </tbody>
 </table>
 
+      </div>
+      <div className="error">
+      {errors==0 &&(
+                        <div>
+                            Invalid CPT code or not found in the database
+                        </div>
+                    )}
       </div>
       <div className="paginate">
       <ReactPaginate
