@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.scss';
-import Logo from './../../assets/logo.png';
+import Logo from './../../assets/logo.jpeg';
 import { Link  } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { auth } from '../../firebase/utils';
@@ -19,13 +19,13 @@ const Header= props => {
             <div className="head">
              <div className="logo">
                <Link to="/">
-              <img src={Logo} alt="Medpedia logo" />
+              <img src={Logo} alt="Lorem logo" />
               </Link>
              </div>
              <div className="right">
-               <h2>Phigent</h2> 
+               <h2>Lorem</h2> 
                <h4>
-                 Search, schedule, price your medical services
+                 Search, schedule, price your services
                </h4>
              </div>
 

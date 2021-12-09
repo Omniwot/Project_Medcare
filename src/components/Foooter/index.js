@@ -7,7 +7,7 @@ const Footer = props => {
     <footer className="footer">
       <div className="wrap">
         <div className="tm">
-        © Phigent 2021
+        © Lorem Ipsum 2021
         </div>
       <div className="tou">
         <a className="tou" href="/terms" target="_blank">
