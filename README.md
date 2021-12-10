@@ -11,12 +11,12 @@ The incentive of this project was to learn various tech-stacks and services used
 The following tech stacks were used in the project:
 
 ### Front-End
-*Bootstrap 5
-*ReactJS
-*React-strap
+* Bootstrap 5
+* ReactJS
+* React-strap
 
 ### Back-End
-*NodeJS (Overall base and API code)
-*Mongo-DB (including mongo-DB Realm 3rd party services for API)
-*Firebase(For Authentication)
-*Google Cloud Services (To redact essential info from uploaded Bills)
+* NodeJS (Overall base and API code)
+* Mongo-DB (including mongo-DB Realm 3rd party services for API)
+* Firebase(For Authentication)
+* Google Cloud Services (To redact essential info from uploaded Bills)
