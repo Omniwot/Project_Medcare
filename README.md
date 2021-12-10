@@ -20,3 +20,7 @@ The following tech stacks were used in the project:
 * Mongo-DB (including mongo-DB Realm 3rd party services for API)
 * Firebase(For Authentication)
 * Google Cloud Services (To redact essential info from uploaded Bills)
+
+### How to Run
+1. Add firebase config of your firebase project in src/firebase/config.js
+2. Use `npm start` in project directory to launch the react app. 
